@@ -13,7 +13,7 @@ define sdkman::springboot(
   if($default) {
     exec { "set-springboot-default":
       command => "bash --login -c 'sdk default springboot ${version}'",
-      requires => Exec["install-springboot-$name"],
+      require => Exec["install-springboot-$name"],
     }
   }
 }

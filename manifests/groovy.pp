@@ -13,7 +13,7 @@ define sdkman::groovy(
   if($default) {
     exec { "set-groovy-default":
       command => "bash --login -c 'sdk default groovy ${version}'",
-      requires => Exec["install-groovy-$name"],
+      require => Exec["install-groovy-$name"],
     }
   }
 }

@@ -13,7 +13,7 @@ define sdkman::vertx(
   if($default) {
     exec { "set-vertx-default":
       command => "bash --login -c 'sdk default vertx ${version}'",
-      requires => Exec["install-vertx-$name"],
+      require => Exec["install-vertx-$name"],
     }
   }
 }

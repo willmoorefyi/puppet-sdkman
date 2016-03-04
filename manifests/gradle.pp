@@ -13,7 +13,7 @@ define sdkman::gradle(
   if($default) {
     exec { "set-gradle-default":
       command => "bash --login -c 'sdk default gradle ${version}'",
-      requires => Exec["install-gradle-$name"],
+      require => Exec["install-gradle-$name"],
     }
   }
 }
