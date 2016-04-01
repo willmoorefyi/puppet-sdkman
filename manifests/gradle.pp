@@ -7,7 +7,7 @@ define sdkman::gradle(
 
   exec { "install-gradle-$name":
     command => "bash --login -c 'sdk install gradle ${version}'",
-    creates => "/Users/${::boxen_user}/.sdkman/gradle/${version}"
+    creates => "/Users/${::boxen_user}/.sdkman/candidates/gradle/${version}"
   }
 
   if($default) {

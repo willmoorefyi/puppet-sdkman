@@ -7,7 +7,7 @@ define sdkman::vertx(
 
   exec { "install-vertx-$name":
     command => "bash --login -c 'sdk install vertx ${version}'",
-    creates => "/Users/${::boxen_user}/.sdkman/vertx/${version}"
+    creates => "/Users/${::boxen_user}/.sdkman/candidates/vertx/${version}"
   }
   
   if($default) {
