@@ -7,7 +7,7 @@ define sdkman::springboot(
 
   exec { "install-springboot-$name":
     command => "bash --login -c 'sdk install springboot ${version}'",
-    creates => "/Users/${::boxen_user}/.sdkman/springboot/${version}"
+    creates => "/Users/${::boxen_user}/.sdkman/candidates/springboot/${version}"
   }
 
   if($default) {

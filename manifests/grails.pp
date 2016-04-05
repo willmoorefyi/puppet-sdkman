@@ -7,7 +7,7 @@ define sdkman::grails(
 
   exec { "install-grails-$name":
   	command => "bash --login -c 'sdk install grails ${version}'",
-  	creates => "/Users/${::boxen_user}/.sdkman/grails/${version}"
+  	creates => "/Users/${::boxen_user}/.sdkman/candidates/grails/${version}"
   }
 
   if($default) {
