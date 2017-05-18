@@ -1,0 +1,13 @@
+{
+  "name": "double16-sdkman",
+  "version": "1.1.0",
+  "author": "https://github.com/double16/puppet-sdkman",
+  "summary": "Manage development tools through SDKMAN",
+  "license": "Apache-2.0",
+  "source": "https://github.com/double16/puppet-sdkman.git",
+  "project_page": "https://github.com/double16/puppet-sdkman",
+  "issues_url": "https://github.com/double16/puppet-sdkman",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.0.0 < 5.0.0"}
+  ]
+}

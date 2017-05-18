@@ -3,17 +3,10 @@ define sdkman::gradle(
   $version = $name,
   $default = false
 ) {
-  require sdkman::install
-
-  exec { "install-gradle-$name":
-    command => "bash --login -c 'sdk install gradle ${version}'",
-    creates => "/Users/${::boxen_user}/.sdkman/candidates/gradle/${version}"
-  }
-
-  if($default) {
-    exec { "set-gradle-default":
-      command => "bash --login -c 'sdk default gradle ${version}'",
-      require => Exec["install-gradle-$name"],
-    }
+  sdkman::package { "gradle-${version}":
+    ensure  => $ensure,
+    package => 'gradle',
+    version => $version,
+    default => $default,
   }
 }

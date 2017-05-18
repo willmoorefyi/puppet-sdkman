@@ -3,17 +3,10 @@ define sdkman::groovy(
   $version = $name,
   $default = false
 ) {
-  require sdkman::install
-
-  exec { "install-groovy-$name":
-  	command => "bash --login -c 'sdk install groovy ${version}'",
-  	creates => "/Users/${::boxen_user}/.sdkman/candidates/groovy/${version}"
-  }
-
-  if($default) {
-    exec { "set-groovy-default":
-      command => "bash --login -c 'sdk default groovy ${version}'",
-      require => Exec["install-groovy-$name"],
-    }
+  sdkman::package { "groovy-${version}":
+    ensure  => $ensure,
+    package => 'groovy',
+    version => $version,
+    default => $default,
   }
 }
