@@ -3,16 +3,10 @@ define sdkman::grails(
   $version = $name,
   $default = false
 ) {
-  require sdkman::install
-
-  exec { "install-grails-$name":
-  	command => "bash --login -c 'sdk install grails ${version}'",
-  	creates => "/Users/${::boxen_user}/.sdkman/candidates/grails/${version}"
-  }
-
-  if($default) {
-    exec { "set-grails-default":
-      command => "bash --login -c 'sdk default grails ${version}'",
-    }
+  sdkman::package { "grails-${version}":
+    ensure  => $ensure,
+    package => 'grails',
+    version => $version,
+    default => $default,
   }
 }

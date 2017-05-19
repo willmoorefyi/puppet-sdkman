@@ -1,7 +1,5 @@
 class sdkman::install(
-  $ensure = $sdkman::install::ensure,
-  $prefix = $sdkman::install::prefix,
-  $user   = $sdkman::install::user,
+  $ensure = present,
 ) {
   exec { 'selfupdate-sdkman':
     command => "bash --login -c 'sdk selfupdate'",
@@ -11,6 +9,5 @@ class sdkman::install(
   exec { 'install-sdkman':
     command => "curl -s get.sdkmantool.net | bash",
     creates => "/Users/${::boxen_user}/.sdkman/etc/config",
-    require => Exec['selfupdate-sdkman'],
   }
 }
